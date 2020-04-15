@@ -1,0 +1,138 @@
+from django.db import models
+from django.utils.translation import gettext_lazy as _
+
+
+class KPMetaHelper(models.Model):
+    def get_kp_meta_title(self):
+        return None
+
+    def get_kp_meta_description(self):
+        return None
+
+    def get_kp_meta_keywords(self):
+        return None
+
+    def get_kp_meta_graph_type(self):
+        return None
+
+    def get_kp_meta_graph_image(self):
+        return None
+
+    def get_kp_meta_graph_url(self):
+        return None
+
+    def get_kp_meta_graph_locale(self):
+        return None
+
+    class Meta:
+        abstract = True
+
+
+class KPMetaBase(KPMetaHelper):
+    kp_meta_title = models.CharField(
+        verbose_name=_("Title tag"),
+        null=True,
+        blank=True,
+        max_length=120,
+    )
+
+    kp_meta_description = models.CharField(
+        verbose_name=_("Description meta tag"),
+        null=True,
+        blank=True,
+        max_length=255,
+    )
+
+    kp_meta_keywords = models.CharField(
+        verbose_name=_("Keywords meta tag"),
+        null=True,
+        blank=True,
+        max_length=255,
+    )
+
+    def get_kp_meta_title(self):
+        return self.kp_meta_title
+
+    def get_kp_meta_description(self):
+        return self.kp_meta_description
+
+    def get_kp_meta_keywords(self):
+        return self.kp_meta_keywords
+
+    class Meta:
+        abstract = True
+
+
+class KPMetaGraph(KPMetaBase):
+    kp_meta_graph_type = models.CharField(
+        verbose_name=_("Graph type tag"),
+        null=True,
+        blank=True,
+        max_length=50,
+    )
+
+    kp_meta_graph_url = models.UrlField(
+        verbose_name=_("Graph url tag"),
+        null=True,
+        blank=True,
+        max_length=250,
+    )
+
+    kp_meta_graph_locale = models.CharField(
+        verbose_name=_("Graph locale tag"),
+        null=True,
+        blank=True,
+        max_length=5,
+    )
+
+    def get_kp_meta_graph_type(self):
+        return self.kp_meta_graph_type
+
+    def get_kp_meta_graph_url(self):
+        return self.kp_meta_graph_url
+
+    def get_kp_meta_graph_locale(self):
+        return self.kp_meta_graph_locale
+
+    class Meta:
+        abstract = True
+
+
+class KPMetaGraphFiler(KPMetaGraph):
+    from filer.fields.image import FilerImageField
+
+    kp_meta_graph_image = FilerImageField(
+        verbose_name=_("Graph image tag"),
+        blank=True,
+        null=True,
+        related_name="%(app_label)s_%(class)s_related",
+        on_delete=models.SET_NULL
+    )
+
+    def get_kp_meta_graph_image(self):
+        if self.kp_meta_graph_image:
+            return self.kp_meta_graph_image.url
+
+        return None
+
+    class Meta:
+        abstract = True
+
+
+class KPMetaGraphFileBrowse(KPMetaGraph):
+    from filebrowser.fields import FileBrowseField
+
+    kp_meta_graph_image = FileBrowseField(
+        verbose_name=_("Graph image tag"),
+        blank=True,
+        null=True,
+    )
+
+    def get_kp_meta_graph_image(self):
+        if self.kp_meta_graph_image:
+            return self.kp_meta_graph_image.url
+
+        return None
+
+    class Meta:
+        abstract = True
