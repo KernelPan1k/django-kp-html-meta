@@ -15,7 +15,8 @@ register = template.Library()
 
 
 def sanitize(txt):
-    if not txt:
+    if not txt \
+            or not isinstance(txt, str):
         return None
 
     txt = unescape(txt)
