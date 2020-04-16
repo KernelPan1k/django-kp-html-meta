@@ -37,6 +37,7 @@ def kp_meta(obj=None):
         'kp_meta_graph_url',
         'kp_meta_graph_locale',
         'kp_meta_graph_image',
+        'kp_meta_graph_site_name',
     ]
 
     context = {}
@@ -45,11 +46,8 @@ def kp_meta(obj=None):
         field_value = None
 
         if obj:
-            field_value = getattr(obj, field_name, None)
-
-            if not field_value:
-                field_method = getattr(obj, "get_%s" % field_name, None)
-                field_value = field_method() if field_method else None
+            field_method = getattr(obj, "get_%s" % field_name, None)
+            field_value = field_method() if field_method else None
 
         if not field_value:
             field_value = kp_settings.get(field_name, None)

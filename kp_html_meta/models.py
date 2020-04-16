@@ -24,6 +24,53 @@ class KPMetaHelper(models.Model):
     def get_kp_meta_graph_locale(self):
         return None
 
+    def get_kp_meta_graph_site_name(self):
+        """
+        Return site name
+
+        for example:
+
+        return "mywebsite.tld"
+
+        or
+
+        from django.conf import settings
+        kp_settings = getattr(settings, 'KP_META')
+        :return kp_settings['kp_meta_graph_site_name']
+
+        or
+
+        from django.contrib.sites.models import Site
+        current_site = Site.objects.get_current()
+        return current_site.domain
+
+        """
+
+        return None
+
+    def get_kp_get_base_url(self):
+        """
+        Return base url
+
+        for example:
+
+        return "https://mywebsite.tld"
+
+        or
+
+        from django.conf import settings
+        kp_settings = getattr(settings, 'KP_META')
+        :return kp_settings['kp_get_base_url']
+
+        or
+
+        from django.contrib.sites.models import Site
+        current_site = Site.objects.get_current()
+        return "https://%s" % current_site.domain
+
+        """
+        return None
+
     class Meta:
         abstract = True
 
@@ -111,7 +158,8 @@ class KPMetaGraphFiler(KPMetaGraph):
 
     def get_kp_meta_graph_image(self):
         if self.kp_meta_graph_image:
-            return self.kp_meta_graph_image.url
+            relative_path = self.kp_meta_graph_image.url
+            return "%s%s" % (self.get_kp_get_base_url(), relative_path)
 
         return None
 
@@ -130,7 +178,8 @@ class KPMetaGraphFileBrowse(KPMetaGraph):
 
     def get_kp_meta_graph_image(self):
         if self.kp_meta_graph_image:
-            return self.kp_meta_graph_image.url
+            relative_path = self.kp_meta_graph_image.url
+            return "%s%s" % (self.get_kp_get_base_url(), relative_path)
 
         return None
 
