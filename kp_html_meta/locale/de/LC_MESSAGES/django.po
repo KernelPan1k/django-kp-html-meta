@@ -1,0 +1,46 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-04-17 18:54+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+#: kp_html_meta/models.py:80
+msgid "Title tag"
+msgstr ""
+
+#: kp_html_meta/models.py:87
+msgid "Description meta tag"
+msgstr ""
+
+#: kp_html_meta/models.py:94
+msgid "Keywords meta tag"
+msgstr ""
+
+#: kp_html_meta/models.py:115
+msgid "Graph type tag"
+msgstr ""
+
+#: kp_html_meta/models.py:122
+msgid "Graph url tag"
+msgstr ""
+
+#: kp_html_meta/models.py:129
+msgid "Graph locale tag"
+msgstr ""
+
+#: kp_html_meta/models.py:152 kp_html_meta/models.py:174
+msgid "Graph image tag"
+msgstr ""
