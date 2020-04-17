@@ -118,7 +118,7 @@ class KPMetaGraph(KPMetaBase):
         max_length=50,
     )
 
-    kp_meta_graph_url = models.UrlField(
+    kp_meta_graph_url = models.URLField(
         verbose_name=_("Graph url tag"),
         null=True,
         blank=True,
@@ -167,11 +167,12 @@ class KPMetaGraphFiler(KPMetaGraph):
         abstract = True
 
 
-class KPMetaGraphFileBrowse(KPMetaGraph):
+class KPMetaGraphFileBrowser(KPMetaGraph):
     from filebrowser.fields import FileBrowseField
 
     kp_meta_graph_image = FileBrowseField(
         verbose_name=_("Graph image tag"),
+        max_length=250,
         blank=True,
         null=True,
     )
