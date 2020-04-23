@@ -1,2 +1,4 @@
 include LICENSE
 include README.rst
+recursive-include kp_html_meta/templates *
+recursive-include kp_html_meta/locale *
