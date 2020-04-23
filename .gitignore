@@ -1,3 +1,4 @@
 .idea/
 venv/
-dist
+dist/
+django_kp_html_meta.egg-info/
