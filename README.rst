@@ -58,7 +58,7 @@ Quick start
     <meta property="og:site_name" content="mywebsite">
     <meta property="twitter:site" content="mywebsite">
     <meta property="og:locale" content="en">
-    
+
 Customization
 -------------
 
