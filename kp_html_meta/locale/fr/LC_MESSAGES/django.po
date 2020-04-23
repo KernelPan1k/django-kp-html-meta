@@ -19,28 +19,28 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 #: kp_html_meta/models.py:80
 msgid "Title tag"
-msgstr ""
+msgstr "Balise title"
 
 #: kp_html_meta/models.py:87
 msgid "Description meta tag"
-msgstr ""
+msgstr "Balise meta description"
 
 #: kp_html_meta/models.py:94
 msgid "Keywords meta tag"
-msgstr ""
+msgstr "Balise meta keyword"
 
 #: kp_html_meta/models.py:115
 msgid "Graph type tag"
-msgstr ""
+msgstr "Balise graph type"
 
 #: kp_html_meta/models.py:122
 msgid "Graph url tag"
-msgstr ""
+msgstr "Balise graph url"
 
 #: kp_html_meta/models.py:129
 msgid "Graph locale tag"
-msgstr ""
+msgstr "Balise graph locale"
 
 #: kp_html_meta/models.py:152 kp_html_meta/models.py:174
 msgid "Graph image tag"
-msgstr ""
+msgstr "Balise graph image"
